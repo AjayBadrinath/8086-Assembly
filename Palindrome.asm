@@ -2,10 +2,10 @@ ASSUME CS:CODE,DS:DATA
 
 DATA SEGMENT
 
-STR1 DB "RACECAR$";String
+STR1 DB "RACECAR$"
 LEN EQU $-STR1
-PAL  DB  "PALINDROME$";Display string
-NOPAL DB  "NOTPALINDROME$";Display string
+PAL  DB  "PALINDROME$"
+NOPAL DB  "NOTPALINDROME$"
 
 DATA ENDS
 
@@ -13,10 +13,10 @@ CODE SEGMENT
 
 START:
 
-MOV AX,DATA;Data initialisation
+MOV AX,DATA
 MOV DS,AX
 
-MOV SI,OFFSET STR1;LOAD str1
+MOV SI,OFFSET STR1
 MOV DI,SI
 MOV AX,LEN
 SUB AX,2
@@ -53,11 +53,11 @@ EXIT:
         INT 21H
 MOV AH,4CH
 INT 21H
-;Procedure Palin
+
 PALIN:
         XOR AX,AX
         XOR BX,BX
-        ;Compare each letter from forward and backward;
+        
         MOV AX,[SI]
         MOV BX,[DI]
         CMP AL,BL
